@@ -1,0 +1,193 @@
+{% extends 'front/base.html' %}
+{% load i18n %}
+{% block about %} active {% endblock %}
+{% block about_dynamic %} active {% endblock %}
+{% block content %} 
+{% load static %}
+
+
+  <!-- services section -->
+  <section class="food_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container heading_center pt-4">
+        <h2>
+          Our Services
+        </h2>
+      </div>
+
+      <ul class="filters_menu">
+        <li class="active" data-filter="*">All</li>
+        <li data-filter=".burger">Investment</li>
+        <li data-filter=".pizza">Businesses</li>
+        <li data-filter=".pasta">Consultancy</li>
+        <li data-filter=".fries">Others</li>
+      </ul>
+
+      <div class="filters-content">
+        <div class="row grid">
+          <div class="col-sm-6 col-lg-4 all pizza">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/trading.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Financial Advice
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all burger">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/mining.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    sales Adivice
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all pizza">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/Energy.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Financial Advice
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all pasta">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/finfinee.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                  Investinent Advice
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all fries">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/transport.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Capital Investiment
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all pizza">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/manufacturing.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Financial Advice
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all burger">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/agriculture.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Marketing Strategy
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all burger">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/real-estate.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Marketing Strategy
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all pasta">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/nobg3.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                  Investinent Advice
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="">
+          View More
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  {% endblock %}

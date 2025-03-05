@@ -1,0 +1,102 @@
+{% extends 'front/base.html' %}
+{% load i18n %}
+{% block about %} active {% endblock %}
+{% block about_dynamic %} active {% endblock %}
+{% block content %} 
+{% load static %}
+
+
+  <!-- services section -->
+<section class="food_section layout_padding-bottom pb-5">
+    <div class="container">
+        <div class="heading_container heading_center pt-4">
+            <h2>Latest News</h2>
+        </div>
+        <div class="filters-content">
+            <div class="row grid">
+                {% for article in news_articles %}
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="box">
+                        <div>
+                            <div class="img-box">
+                                <a href="{% url 'news_detail' news_id=article.id %}">
+                                    <img src="{{ article.featured_image.url }}" 
+                                         class="img-fluid img-thumbnail img-thumbnail-no-borders" 
+                                         style="width: 100%; height:150px;" 
+                                         alt="News Image" />
+                                </a>
+                            </div>
+                            <div class="detail-box bg-white text-dark p-3">
+                                <h5>
+                                    <a href="{% url 'news_detail' news_id=article.id %}" 
+                                       style="overflow: hidden; display: inline-block; height: 50px;">
+                                        {{ article.title|truncatechars:50 }}
+                                    </a>
+                                </h5>
+                                <p>{{ article.content|truncatechars:200 }}</p>
+                                <div class="d-flex justify-content-between align-items-center small text-muted">
+                                    <span><i class="fas fa-calendar-alt"></i> {{ article.created_at|date }}</span>
+                                    <span><i class="fas fa-user"></i> {{ article.created_by|truncatechars:15 }}</span>
+                                    <span><i class="fas fa-envelope"></i> {{ article.created_by.email|truncatechars:20 }}</span>
+                                </div>
+                                <div class="post-meta">
+                                    <span><i class="far fa-clock"></i> <a href="#">{{ article.created_at }}</a></span>
+                                    <span class="float-end">
+                                        <a href="{% url 'news_detail' news_id=article.id %}" class="text-uppercase">Read More</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer_section mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 footer-col">
+                <div class="footer_contact">
+                    <h4>Contact Us</h4>
+                    <div class="contact_link_box">
+                        <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>Location</span></a>
+                        <a href="#"><i class="fa fa-phone" aria-hidden="true"></i> <span>Call +25 12345 67890</span></a>
+                        <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> <span>otech@gmail.com</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 footer-col">
+                <div class="footer_detail">
+                    <a href="#" class="footer-logo">Oromia Investment Group</a>
+                    <p>Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words.</p>
+                    <div class="footer_social">
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 footer-col">
+                <h4>Opening Hours</h4>
+                <p>Everyday</p>
+                <p>10.00 AM - 10.00 PM</p>
+            </div>
+        </div>
+        <div class="footer-info text-center mt-3">
+            <p>© <span id="displayYear"></span> Designed and Implemented By 
+                <a href="https://otech.et/" target="_blank">OTech Engineering and Technology Solutions PLC</a>
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- End Footer Section -->
+
+
+
+    {% endblock %}

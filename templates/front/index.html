@@ -1,0 +1,217 @@
+{% extends 'front/base.html' %}
+{% load static %}
+
+{% block home %} active {% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- slider section -->
+<section class="slider_section">
+  <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7 col-lg-6">
+              <div class="detail-box">
+                <h1>Oromia Investment Holding</h1>
+                <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
+                <div class="btn-box">
+                  <a href="{% url 'contact_us' %}" class="btn1">Contact Us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Additional carousel items -->
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7 col-lg-6">
+              <div class="detail-box">
+                <h1>Oromia Investment Group</h1>
+                <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
+                <div class="btn-box">
+                  <a href="{% url 'contact_us' %}" class="btn1">Contact Us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add more carousel items as needed -->
+    </div>
+    <div class="container">
+      <ol class="carousel-indicators">
+        <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+        <li data-target="#customCarousel1" data-slide-to="1"></li>
+        <!-- Add more indicators if needed -->
+      </ol>
+    </div>
+  </div>
+</section>
+<!-- end slider section -->
+
+<!-- offer section -->
+<section class="offer_section layout_padding-bottom">
+  <div class="offer_container">
+    <div class="heading_container heading_center">
+      <h2>Lead By</h2>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/Shimelis_Abdissa.jpg' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>H.E Shimelis Abdissa</h5>
+              <h6><span>Board Chairman</span></h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/dr.adere.jpg' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>Dr. Adere Mitiku</h5>
+              <h6><span>CEO</span></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end offer section -->
+
+<!-- Recent News Posts Section -->
+<section id="recent-posts" class="recent-posts section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Recent News Posts</h2>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    <div class="row gy-5">
+      {% for article in recent_news %}
+      <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="post-box">
+          <!-- Render the featured image of the article -->
+          <div class="post-img">
+            <a href="{% url 'news_detail' news_id=article.id %}">
+              <img src="{{ article.featured_image.url }}" class="img-fluid" style="width: 100%; height: 200px;" alt="{{ article.title }}">
+            </a>
+          </div>
+          <!-- Render meta information -->
+          <div class="meta">
+            <span class="post-date">{{ article.created_at|date:"D, F d, Y" }}</span>
+            <span class="post-author"> / {{ article.author }}</span>
+          </div>
+          <!-- Render the title -->
+          <h6 class="post-title">
+            <a href="{% url 'news_detail' news_id=article.id %}" class="stretched-link">{{ article.title|truncatechars:50 }}</a>
+          </h6>
+          <!-- Render the truncated content -->
+          <p>{{ article.content|truncatechars:145 }}</p>
+          <!-- Read more link -->
+          <a href="{% url 'news_detail' news_id=article.id %}" class="readmore stretched-link">
+            <span>Read More</span><i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section><!-- End Recent News Posts Section -->
+
+<!-- Recent Blogs -->
+<section class="section border-0 py-10 m-0 px-lg-5">
+  <div class="container">
+      
+      <div class="row">
+          <div class="col">
+              <div class="blog-posts mt-0">
+                  <div class="row">
+                      {% for blog in recent_blogs %}
+                      <div class="col-lg-3 col-md-3 mb-3">
+                          <span class="thumb-info">
+                              <span class="thumb-info-wrapper">
+                                  <img src="{{ blog.images.url }}" class="img-fluid" style="height: 200px;" alt="">
+                                  <span class="thumb-info-title bg-transparent w-100 text-center mw-100 p-3">
+                                      <span class="thumb-info-inner">
+                                          <em class="opacity-7">{{ blog.date }}</em> {{ blog.title }}
+                                      </span>
+                                  </span>
+                                  <span class="thumb-info-title bg-transparent w-100 mw-100 p-0 text-center" style="bottom: 8%;">
+                                      <span class="thumb-info-inner text-2">
+                                          <a href="{% url 'blog_detail' blog_id=blog.id %}" class="readmore stretched-link">
+                                            <span>Read More</span><i class="bi bi-arrow-right"></i>
+                                          </a>
+                                      </span>
+                                  </span>
+                              </span>
+                          </span>
+                      </div>
+                      {% endfor %}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Recent Blogs -->
+<section class="section border-0 py-10 m-0 px-lg-5">
+  <div class="container">
+      <div class="row align-items-end pb-3">
+          <div class="col-lg-7 col-xl-8 mb-4 mb-lg-0">
+              <h2 class="text-color-primary font-weight-semibold line-height-3 text-5 mb-0">
+                  Recent Blogs
+              </h2>
+            
+          </div>
+         
+      </div>
+      <div class="row">
+          <div class="col">
+              <div class="blog-posts mt-0">
+                  <div class="row">
+                      {% for blog in recent_blogs %}
+                      <div class="col-lg-3 col-md-3 mb-3">
+                          <span class="thumb-info">
+                              <span class="thumb-info-wrapper">
+                                  <img src="{{ blog.images.url }}" class="img-fluid" style="height: 200px;" alt="">
+                                  <span class="thumb-info-title bg-transparent w-100 text-center mw-100 p-3">
+                                      <span class="thumb-info-inner">
+                                          <em class="opacity-7">{{ blog.date }}</em> {{ blog.title }}
+                                      </span>
+                                  </span>
+                                  <span class="thumb-info-title bg-transparent w-100 mw-100 p-0 text-center" style="bottom: 8%;">
+                                      <span class="thumb-info-inner text-2">
+                                          <a href="{% url 'blog_detail' blog_id=blog.id %}" class="readmore stretched-link">
+                                              
+                                              <span>Read More</span><i class="bi bi-arrow-right"></i>
+                                          </a>
+                                      </span>
+                                  </span>
+                              </span>
+                          </span>
+                      </div>
+                      {% endfor %}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- end Recent Blogs -->
+{% endblock %}
