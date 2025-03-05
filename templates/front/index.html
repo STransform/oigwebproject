@@ -4,214 +4,471 @@
 {% block home %} active {% endblock %}
 
 {% block content %}
-<br>
-<br>
-<br>
-<br>
-<br>
-<!-- slider section -->
+<!-- Hero Section with Video Background -->
+<div class="hero_area">
+    <div class="bg-box">
+        <video autoplay muted loop style="width: 100%; height: 45%; object-fit: cover;">
+            <source src="{% static 'front/images/4K-hero.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+<!-- End Hero Section -->
+
+<br><br><br><br><br>
+
+<!-- Slider Section -->
 <section class="slider_section">
-  <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-7 col-lg-6">
-              <div class="detail-box">
-                <h1>Oromia Investment Holding</h1>
-                <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
-                <div class="btn-box">
-                  <a href="{% url 'contact_us' %}" class="btn1">Contact Us</a>
+    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-6">
+                            <div class="detail-box">
+                                <h1>Oromia Investment Holding</h1>
+                                <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde.</p>
+                                <div class="btn-box">
+                                    <a href="{% url 'contact_us' %}" class="btn1">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <!-- Additional carousel items -->
-      <div class="carousel-item">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-7 col-lg-6">
-              <div class="detail-box">
-                <h1>Oromia Investment Group</h1>
-                <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
-                <div class="btn-box">
-                  <a href="{% url 'contact_us' %}" class="btn1">Contact Us</a>
+            <!-- Additional carousel items -->
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-6">
+                            <div class="detail-box">
+                                <h1>Oromia Investment Group</h1>
+                                <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde.</p>
+                                <div class="btn-box">
+                                    <a href="{% url 'contact_us' %}" class="btn1">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+            <!-- Add more carousel items if needed -->
         </div>
-      </div>
-      <!-- Add more carousel items as needed -->
+        <div class="container">
+            <ol class="carousel-indicators">
+                <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+                <li data-target="#customCarousel1" data-slide-to="1"></li>
+            </ol>
+        </div>
     </div>
-    <div class="container">
-      <ol class="carousel-indicators">
-        <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-        <li data-target="#customCarousel1" data-slide-to="1"></li>
-        <!-- Add more indicators if needed -->
-      </ol>
-    </div>
-  </div>
 </section>
-<!-- end slider section -->
+<!-- End Slider Section -->
 
-<!-- offer section -->
+<!-- Offer Section -->
 <section class="offer_section layout_padding-bottom">
-  <div class="offer_container">
-    <div class="heading_container heading_center">
-      <h2>Lead By</h2>
+    <div class="offer_container">
+        <div class="heading_container heading_center">
+            <h2>Lead By</h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'front/images/Shimelis_Abdissa.jpg' %}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>H.E Shimelis Abdissa</h5>
+                            <h6><span>Board Chairman</span></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'front/images/dr.adere.jpg' %}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>Dr. Adere Mitiku</h5>
+                            <h6><span>CEO</span></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Offer Section -->
+
+<!-- Recent News Section -->
+<section id="recent-posts" class="recent-posts section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2 class="text-center">Recent News</h2>
+        <br>
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="box">
-            <div class="img-box">
-              <img src="{% static 'images/Shimelis_Abdissa.jpg' %}" alt="">
+        <div class="row gy-5">
+            {% for article in recent_news %}
+            <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="post-box">
+                    <div class="post-img">
+                        <a href="{% url 'news_detail' news_id=article.id %}">
+                            <img src="{{ article.featured_image.url }}" class="img-fluid" style="width: 100%; height: 200px;" alt="{{ article.title }}">
+                        </a>
+                    </div>
+                    <div class="meta">
+                        <span class="post-date">{{ article.created_at|date:"D, F d, Y" }}</span>
+                        <span class="post-author"> / {{ article.author }}</span>
+                    </div>
+                    <h6 class="post-title">
+                        <a href="{% url 'news_detail' news_id=article.id %}" class="stretched-link">{{ article.title|truncatechars:50 }}</a>
+                    </h6>
+                    <p>{{ article.content|truncatechars:145 }}</p>
+                    <a href="{% url 'news_detail' news_id=article.id %}" class="readmore stretched-link">
+                        <span>Read More</span><i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-            <div class="detail-box">
-              <h5>H.E Shimelis Abdissa</h5>
-              <h6><span>Board Chairman</span></h6>
-            </div>
-          </div>
+            {% endfor %}
         </div>
-        <div class="col-md-6">
-          <div class="box">
-            <div class="img-box">
-              <img src="{% static 'images/dr.adere.jpg' %}" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>Dr. Adere Mitiku</h5>
-              <h6><span>CEO</span></h6>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
-<!-- end offer section -->
-
-<!-- Recent News Posts Section -->
+<!-- End Recent News Section -->
+<br>
+<br>
+<!-- Recent Blog Posts Section -->
 <section id="recent-posts" class="recent-posts section">
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Recent News Posts</h2>
-  </div><!-- End Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2 class="text-center">Recent Blogs</h2>
+        <br>
+    </div>
+    <div class="container">
+        <div class="row gy-5">
+            {% if recent_blogs.count == 4 %}
+                <!-- Blog Post 1 -->
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="post-box">
+                        <div class="post-img">
+                            <img src="{{ recent_blogs.0.images.url }}" class="img-fluid" alt="{{ recent_blogs.0.title }}" style="height: 200px;">
+                        </div>
+                        <div class="meta">
+                            <span class="post-date">{{ recent_blogs.0.date }}</span>
+                        </div>
+                        <h3 class="post-title ">{{ recent_blogs.0.title }}</h3>
+                        <a href="{% url 'blog_detail' blog_id=recent_blogs.0.id %}" class="readmore stretched-link">
+                            <span>Read More</span><i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
-  <div class="container">
-    <div class="row gy-5">
-      {% for article in recent_news %}
-      <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="post-box">
-          <!-- Render the featured image of the article -->
-          <div class="post-img">
-            <a href="{% url 'news_detail' news_id=article.id %}">
-              <img src="{{ article.featured_image.url }}" class="img-fluid" style="width: 100%; height: 200px;" alt="{{ article.title }}">
-            </a>
+                <!-- Blog Post 2 -->
+                <div class="col-xl-9 col-md-6 d-none d-md-block" data-aos="fade-up" data-aos-delay="400">
+                    <div class="post-box" style="height: 202px; border: 1px solid #ccc; border-left: none;">
+                        <div class="post-img">
+                            <img src="{{ recent_blogs.1.images.url }}" class="img-fluid" alt="{{ recent_blogs.1.title }}" style="height: 200px;">
+                        </div>
+                        <div class="meta">
+                            <span class="post-date">{{ recent_blogs.1.created_date }}</span>
+                            <span class="post-author">{{ recent_blogs.1.created_by }}</span>
+                            <span class="post-comments">{{ recent_blogs.1.comments.count }} Comments</span>
+                        </div>
+                        <h3 class="post-title">{{ recent_blogs.1.title }}</h3>
+                        <p>{{ recent_blogs.1.content|truncatechars:210 }}</p>
+                        <a href="{% url 'blog_detail' blog_id=recent_blogs.1.id %}" class="readmore stretched-link">
+                            <span>Read More</span><i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="col-xl-9 col-md-6 d-none d-md-block" data-aos="fade-up" data-aos-delay="600">
+                    <div class="post-box" style="height: 202px; border: 1px solid #ccc; border-left: none;">
+                        <div class="post-img">
+                            <img src="{{ recent_blogs.2.images.url }}" class="img-fluid" alt="{{ recent_blogs.2.title }}" style="height: 200px;">
+                        </div>
+                        <div class="meta">
+                            <span class="post-date">{{ recent_blogs.2.created_date }}</span>
+                            <span class="post-author">{{ recent_blogs.2.created_by }}</span>
+                            <span class="post-comments">{{ recent_blogs.2.comments.count }} Comments</span>
+                        </div>
+                        <h3 class="post-title">{{ recent_blogs.2.title }}</h3>
+                        <p>{{ recent_blogs.2.content|truncatechars:210 }}</p>
+                        <a href="{% url 'blog_detail' blog_id=recent_blogs.2.id %}" class="readmore stretched-link">
+                            <span>Read More</span><i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 4 -->
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="800">
+                    <div class="post-box">
+                        <div class="post-img">
+                            <img src="{{ recent_blogs.3.images.url }}" class="img-fluid" alt="{{ recent_blogs.3.title }}" style="height: 200px;">
+                        </div>
+                        <div class="meta">
+                            <span class="post-date">{{ recent_blogs.3.created_date }}</span>
+                        </div>
+                        <h3 class="post-title">{{ recent_blogs.3.title }}</h3>
+                        <a href="{% url 'blog_detail' blog_id=recent_blogs.3.id %}" class="readmore stretched-link">
+                            <span>Read More</span><i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            {% else %}
+                <!-- Loop Through Blogs When Not Exactly Four -->
+                {% for blog in recent_blogs %}
+                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:200 }}">
+                        <div class="post-box">
+                            <div class="post-img">
+                                <img src="{{ blog.images.url }}" class="img-fluid" alt="{{ blog.title }}" style="height: 200px;">
+                            </div>
+                            <div class="meta">
+                                <span class="post-date">{{ blog.date }}</span>
+                                <span class="post-author">{{ blog.created_by }}</span>
+                            </div>
+                            <h3 class="post-title">{{ blog.title }}</h3>
+                            <p>{{ blog.content|truncatechars:100 }}</p>
+                            <a href="{% url 'blog_detail' blog_id=blog.id %}" class="readmore stretched-link">
+                                <span>Read More</span><i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+  <!-- food section -->
+
+  <section class="food_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Our Services
+        </h2>
+      </div>
+
+      <ul class="filters_menu">
+        <li class="active" data-filter="*">All</li>
+        <li data-filter=".burger">Investment</li>
+        <li data-filter=".pizza">Businesses</li>
+        <li data-filter=".pasta">Consultancy</li>
+        <li data-filter=".fries">Others</li>
+      </ul>
+
+      <div class="filters-content">
+        <div class="row grid">
+          <div class="col-sm-6 col-lg-4 all pizza">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/trading.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Financial Advice
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
+                  </p>
+
+                </div>
+              </div>
+            </div>
           </div>
-          <!-- Render meta information -->
-          <div class="meta">
-            <span class="post-date">{{ article.created_at|date:"D, F d, Y" }}</span>
-            <span class="post-author"> / {{ article.author }}</span>
+          <div class="col-sm-6 col-lg-4 all burger">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/mining.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    sales Adivice
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <!-- Render the title -->
-          <h6 class="post-title">
-            <a href="{% url 'news_detail' news_id=article.id %}" class="stretched-link">{{ article.title|truncatechars:50 }}</a>
-          </h6>
-          <!-- Render the truncated content -->
-          <p>{{ article.content|truncatechars:145 }}</p>
-          <!-- Read more link -->
-          <a href="{% url 'news_detail' news_id=article.id %}" class="readmore stretched-link">
-            <span>Read More</span><i class="bi bi-arrow-right"></i>
-          </a>
+          <div class="col-sm-6 col-lg-4 all pizza">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/Energy.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Financial Advice
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all pasta">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/finfinee.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Investinent Advice
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all fries">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/transport.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Capital Investiment
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all pizza">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/manufacturing.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Financial Advice
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all burger">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/agriculture.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Marketing Strategy
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all burger">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/real-estate.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Marketing Strategy
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all pasta">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="{% static 'front/images/nobg3.jpg' %}" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Investinent Advice
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus
+                    sed eaque
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      {% endfor %}
+      <div class="btn-box">
+        <a href="">
+          View More
+        </a>
+      </div>
     </div>
-  </div>
-</section><!-- End Recent News Posts Section -->
+  </section>
 
-<!-- Recent Blogs -->
-<section class="section border-0 py-10 m-0 px-lg-5">
-  <div class="container">
+  <!-- end food section -->
+
+  <section class="client_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container heading_center psudo_white_primary mb_45">
+        <h2>
+          Our Partners
+        </h2>
+      </div>
+
+      <div class="container-1 h-100">
+        <div class="row align-items-center h-100">
+          <div class="container rounded">
+            <div class="slider">
+              <div class="logos">
+                <i class="bi bi-code-slash fa-4x"></i> <!-- Bootstrap icon -->
+                <i class="bi bi-linkedin fa-4x"></i> <!-- Bootstrap icon -->
+                <i class="bi bi-dribbble fa-4x"></i> <!-- Bootstrap icon -->
+                <i class="bi bi-medium fa-4x"></i> <!-- Bootstrap icon -->
+                <i class="bi bi-github fa-4x"></i> <!-- Bootstrap icon -->
+              </div>
+              <div class="logos">
+                <i class="bi bi-code-slash fa-4x"></i> <!-- Bootstrap icon -->
+                <i class="bi bi-linkedin fa-4x"></i> <!-- Bootstrap icon -->
+                <i class="bi bi-dribbble fa-4x"></i> <!-- Bootstrap icon -->
+                <i class="bi bi-medium fa-4x"></i> <!-- Bootstrap icon -->
+                <i class="bi bi-github fa-4x"></i> <!-- Bootstrap icon -->
+              </div>
+            </div>
+          </div>
+        </div>
       
-      <div class="row">
-          <div class="col">
-              <div class="blog-posts mt-0">
-                  <div class="row">
-                      {% for blog in recent_blogs %}
-                      <div class="col-lg-3 col-md-3 mb-3">
-                          <span class="thumb-info">
-                              <span class="thumb-info-wrapper">
-                                  <img src="{{ blog.images.url }}" class="img-fluid" style="height: 200px;" alt="">
-                                  <span class="thumb-info-title bg-transparent w-100 text-center mw-100 p-3">
-                                      <span class="thumb-info-inner">
-                                          <em class="opacity-7">{{ blog.date }}</em> {{ blog.title }}
-                                      </span>
-                                  </span>
-                                  <span class="thumb-info-title bg-transparent w-100 mw-100 p-0 text-center" style="bottom: 8%;">
-                                      <span class="thumb-info-inner text-2">
-                                          <a href="{% url 'blog_detail' blog_id=blog.id %}" class="readmore stretched-link">
-                                            <span>Read More</span><i class="bi bi-arrow-right"></i>
-                                          </a>
-                                      </span>
-                                  </span>
-                              </span>
-                          </span>
-                      </div>
-                      {% endfor %}
-                  </div>
-              </div>
-          </div>
       </div>
-  </div>
+    </div>
 </section>
 
-<!-- Recent Blogs -->
-<section class="section border-0 py-10 m-0 px-lg-5">
-  <div class="container">
-      <div class="row align-items-end pb-3">
-          <div class="col-lg-7 col-xl-8 mb-4 mb-lg-0">
-              <h2 class="text-color-primary font-weight-semibold line-height-3 text-5 mb-0">
-                  Recent Blogs
-              </h2>
-            
-          </div>
-         
-      </div>
-      <div class="row">
-          <div class="col">
-              <div class="blog-posts mt-0">
-                  <div class="row">
-                      {% for blog in recent_blogs %}
-                      <div class="col-lg-3 col-md-3 mb-3">
-                          <span class="thumb-info">
-                              <span class="thumb-info-wrapper">
-                                  <img src="{{ blog.images.url }}" class="img-fluid" style="height: 200px;" alt="">
-                                  <span class="thumb-info-title bg-transparent w-100 text-center mw-100 p-3">
-                                      <span class="thumb-info-inner">
-                                          <em class="opacity-7">{{ blog.date }}</em> {{ blog.title }}
-                                      </span>
-                                  </span>
-                                  <span class="thumb-info-title bg-transparent w-100 mw-100 p-0 text-center" style="bottom: 8%;">
-                                      <span class="thumb-info-inner text-2">
-                                          <a href="{% url 'blog_detail' blog_id=blog.id %}" class="readmore stretched-link">
-                                              
-                                              <span>Read More</span><i class="bi bi-arrow-right"></i>
-                                          </a>
-                                      </span>
-                                  </span>
-                              </span>
-                          </span>
-                      </div>
-                      {% endfor %}
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</section>
-<!-- end Recent Blogs -->
+
 {% endblock %}

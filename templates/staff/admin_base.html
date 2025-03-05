@@ -643,10 +643,7 @@
                             </a>
                             <ul class="slide-menu child1">
                                
-                                {% if perms.dashboard.view_faq %}
-                                <li class="slide"><a href="{% url 'list_view' model_name='FAQ' %}" 
-                                    class="side-menu__item {% if model_code == 'FAQ' %} active {% endif %}">FAQs</a></li>
-                                {% endif %}
+                               
                                
 
                                 {% if perms.dashboard.view_contact %}

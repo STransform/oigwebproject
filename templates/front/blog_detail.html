@@ -8,25 +8,18 @@
 
 <section class="section border-0 py-10 m-0 px-lg-5 pt-4">
     <div class="row align-items-center text-center pb-3 mb-5 mb-lg-4">
-        <div class="d-flex align-items-end justify-content-end">
-            <ul class="breadcrumb d-block text-center">
-                <li><a href="{% url 'index' %}" class="text-grey">{% trans "Home" %}</a></li>
-                <li class=""><a href="{% url 'blog_list' %}" class="text-grey">{% trans "Blog List" %}</a></li>
-                <li class="active text-primary"> <a href="">{% trans "Blog Detail" %}</a></li>
-
-            </ul>
-        </div>
+       
         <hr class="bg-light">
         <div class="col-12 mb-lg-0 ">
             <div class="d-flex align-items-center mb-2  justify-content-center">
                 <div class="overflow-hidden text-center">
                     <h2 class="text-color-primary text-9 text-center font-weight-semibold line-height-3 text-5 mb-0 appear-animation"
-                        data-appear-animation="maskRight" data-appear-animation-delay="300">{% trans "BLOG DETAIL" %}
+                        data-appear-animation="maskRight" data-appear-animation-delay="300">BLOG DETAIL
                     </h2>
                 </div>
             </div>
             <p class="appear-animation text-center" data-appear-animation="maskRight" data-appear-animation-delay="400">
-                {% trans "Blog on " %}'{{blog.title}}'
+                Blog on '{{blog.title}}'
             </p>
         </div>
 
@@ -89,7 +82,7 @@
             <div class="col-lg-4">
                 <div class="widget latest-posts border border-transparent p-3" style="border-radius: 10px;">
                     <header>
-                        <h3 class="h6">{% trans "Recent Posts" %}</h3>
+                        <h3 class="h6">Recent Posts</h3>
                     </header>
                     <div class="blog-posts">
                         {% for recent_blog_item in recent_blogs %}
@@ -127,7 +120,7 @@
                 <p>{{blog.content|safe}}</p>
 
                 <div id="comments" class="post-block mt-5 post-comments">
-                    <h4 class="mb-3">{% trans "Comments" %} ({{blog.comments.count}})</h4>
+                    <h4 class="mb-3">Comments ({{blog.comments.count}})</h4>
 
                     <ul class="comments">
                         {% for c in comments %}
@@ -154,31 +147,31 @@
                 </div>
 
                 <div class="post-block mt-5 post-leave-comment">
-                    <h4 class="mb-3">{% trans "Leave a comment" %}</h4>
+                    <h4 class="mb-3">Leave a comment</h4>
 
                     <form class=" p-4 rounded bg-color-grey" action="" method="POST" enctype="multipart/form-data">			
                         {% csrf_token %}
                         <div class="p-2">
                             <div class="row">
                                 <div class="form-group col-lg-6">
-                                    <label class="form-label required font-weight-bold text-dark">{% trans "Full Name" %}</label>
+                                    <label class="form-label required font-weight-bold text-dark">Full Name</label>
                                     <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="author" required="">
                                 </div>
                                 <div class="form-group col-lg-6">
-                                    <label class="form-label required font-weight-bold text-dark">{% trans "Email Address" %}</label>
+                                    <label class="form-label required font-weight-bold text-dark">Email Address</label>
                                     <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" required="">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col">
-                                    <label class="form-label required font-weight-bold text-dark">{% trans "Comment" %}</label>
+                                    <label class="form-label required font-weight-bold text-dark">Comment</label>
                                     <textarea maxlength="5000" data-msg-required="Please enter your message." rows="8" class="form-control" name="message" required=""></textarea>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col mb-0">
 
-                                    <button type="submit"  class="btn btn-primary btn-modern" style="color: white;">{% trans "Post Comments" %}</button>
+                                    <button type="submit"  class="btn btn-secondary " style="color: white;">Post Comments</button>
                                 </div>
                             </div>
                         </div>
