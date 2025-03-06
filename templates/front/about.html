@@ -1,12 +1,12 @@
 {% extends 'front/base.html' %}
-{% load i18n %}
+
 {% block about %} active {% endblock %}
 {% block about_dynamic %} active {% endblock %}
 {% block content %} 
 {% load static %}
 
 
-  <section class="about_section layout_padding">
+  <section class="about_section layout_padding ">
     <div class="container  ">
 
       <div class="row">
@@ -45,7 +45,7 @@
                 
       <div class="col-md-6 ">
         <div class="img-box">
-          <img  src="{% static 'images/shime.jpg' %}" alt="">
+          <img  src="{% static 'front/images/shime.jpg' %}" alt="">
         </div>
       </div>
 
@@ -109,7 +109,7 @@
 
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="{% static 'images/dr.adere.jpg' %}" alt="">
+            <img src="{% static 'front/images/dr.adere.jpg' %}" alt="">
           </div>
         </div>
 

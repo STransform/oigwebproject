@@ -1,244 +1,237 @@
-{% extends 'front/base.html' %}
 {% load static %}
 
-{% block home %} active {% endblock %}
-
 {% block content %}
-<!-- Hero Section with Video Background -->
-<div class="hero_area">
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="">
+
+  <title> Oromia Investment Holding </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'front/css/bootstrap.css' %}" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css"
+    integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ=="
+    crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="{% static 'front/css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'front/css/style.css ' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'front/css/responsive.css' %}" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <div class="hero_area">
     <div class="bg-box">
-        <video autoplay muted loop style="width: 100%; height: 45%; object-fit: cover;">
-            <source src="{% static 'front/images/4K-hero.mp4' %}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+      <video autoplay muted loop style="width: 100%; height: 100%; object-fit: cover;">
+        <source src="{% static 'front/images/4K-hero.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
-</div>
-<!-- End Hero Section -->
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'index' %}">
+            <span>Oromia Sovereign Fund</span>
+          </a>
 
-<br><br><br><br><br>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
 
-<!-- Slider Section -->
-<section class="slider_section">
-    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Who are we</a>
+                <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                  <a class="dropdown-item" href="{% url 'about' %}">About</a>
+                  <a class="dropdown-item" href="{% url 'vision_mission' %}">Vision & Mission</a>
+                  <a class="dropdown-item" href="{% url 'history' %}">Our History</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'services' %}">Services</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Blog & News</a>
+                <div class="dropdown-menu" aria-labelledby="aboutDropdown">
+                  <a class="dropdown-item" href="{% url 'news_list_visitor' %}">News</a>
+                  <a class="dropdown-item" href="{% url 'blog_list' %}">Blogs</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact_us' %}">Contact</a>
+              </li>
+            </ul>
+            <div class="user_option">
+              <a href="" class="user_link">
+                <i class="bi bi-person"></i> <!-- Bootstrap user icon -->
+              </a>
+              <form class="form-inline">
+                <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="bi bi-search"></i> <!-- Bootstrap search icon -->
+                </button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-7 col-lg-6">
-                            <div class="detail-box">
-                                <h1>Oromia Investment Holding</h1>
-                                <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde.</p>
-                                <div class="btn-box">
-                                    <a href="{% url 'contact_us' %}" class="btn1">Contact Us</a>
-                                </div>
-                            </div>
-                        </div>
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 col-lg-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Oromia Investment Holding
+                    </h1>
+                    <p>
+                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
+                      quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
+                      nihil ducimus libero ipsam.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Contact Us
+                      </a>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
-            <!-- Additional carousel items -->
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-7 col-lg-6">
-                            <div class="detail-box">
-                                <h1>Oromia Investment Group</h1>
-                                <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde.</p>
-                                <div class="btn-box">
-                                    <a href="{% url 'contact_us' %}" class="btn1">Contact Us</a>
-                                </div>
-                            </div>
-                        </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 col-lg-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Oromia Investment Group
+                    </h1>
+                    <p>
+                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
+                      quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
+                      nihil ducimus libero ipsam.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Contact us
+                      </a>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
-            <!-- Add more carousel items if needed -->
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 col-lg-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Oromia Investment Holding
+                    </h1>
+                    <p>
+                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam
+                      quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos
+                      nihil ducimus libero ipsam.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Contact us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="container">
-            <ol class="carousel-indicators">
-                <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-                <li data-target="#customCarousel1" data-slide-to="1"></li>
-            </ol>
+          <ol class="carousel-indicators">
+            <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+            <li data-target="#customCarousel1" data-slide-to="1"></li>
+            <li data-target="#customCarousel1" data-slide-to="2"></li>
+          </ol>
         </div>
-    </div>
-</section>
-<!-- End Slider Section -->
+      </div>
 
-<!-- Offer Section -->
-<section class="offer_section layout_padding-bottom">
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- offer section -->
+
+  <section class="offer_section layout_padding-bottom">
     <div class="offer_container">
-        <div class="heading_container heading_center">
-            <h2>Lead By</h2>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="{% static 'front/images/Shimelis_Abdissa.jpg' %}" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h5>H.E Shimelis Abdissa</h5>
-                            <h6><span>Board Chairman</span></h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="{% static 'front/images/dr.adere.jpg' %}" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h5>Dr. Adere Mitiku</h5>
-                            <h6><span>CEO</span></h6>
-                        </div>
-                    </div>
-                </div>
+      <div class="heading_container heading_center">
+        <h2>Lead By</h2>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'front/images/Shimelis_Abdissa.jpg' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>H.E Shimelis Abdissa</h5>
+                <h6><span>Board Chairman</span></h6>
+              </div>
             </div>
-        </div>
-    </div>
-</section>
-<!-- End Offer Section -->
-
-<!-- Recent News Section -->
-<section id="recent-posts" class="recent-posts section">
-    <div class="container section-title" data-aos="fade-up">
-        <h2 class="text-center">Recent News</h2>
-        <br>
-    </div>
-    <div class="container">
-        <div class="row gy-5">
-            {% for article in recent_news %}
-            <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="post-box">
-                    <div class="post-img">
-                        <a href="{% url 'news_detail' news_id=article.id %}">
-                            <img src="{{ article.featured_image.url }}" class="img-fluid" style="width: 100%; height: 200px;" alt="{{ article.title }}">
-                        </a>
-                    </div>
-                    <div class="meta">
-                        <span class="post-date">{{ article.created_at|date:"D, F d, Y" }}</span>
-                        <span class="post-author"> / {{ article.author }}</span>
-                    </div>
-                    <h6 class="post-title">
-                        <a href="{% url 'news_detail' news_id=article.id %}" class="stretched-link">{{ article.title|truncatechars:50 }}</a>
-                    </h6>
-                    <p>{{ article.content|truncatechars:145 }}</p>
-                    <a href="{% url 'news_detail' news_id=article.id %}" class="readmore stretched-link">
-                        <span>Read More</span><i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
+          </div>
+          <div class="col-md-6">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'front/images/dr.adere.jpg' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>Dr. Adere Mitiku</h5>
+                <h6><span>CEO</span></h6>
+              </div>
             </div>
-            {% endfor %}
+          </div>
         </div>
+      </div>
     </div>
-</section>
-<!-- End Recent News Section -->
-<br>
-<br>
-<!-- Recent Blog Posts Section -->
-<section id="recent-posts" class="recent-posts section">
-    <div class="container section-title" data-aos="fade-up">
-        <h2 class="text-center">Recent Blogs</h2>
-        <br>
-    </div>
-    <div class="container">
-        <div class="row gy-5">
-            {% if recent_blogs.count == 4 %}
-                <!-- Blog Post 1 -->
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="post-box">
-                        <div class="post-img">
-                            <img src="{{ recent_blogs.0.images.url }}" class="img-fluid" alt="{{ recent_blogs.0.title }}" style="height: 200px;">
-                        </div>
-                        <div class="meta">
-                            <span class="post-date">{{ recent_blogs.0.date }}</span>
-                        </div>
-                        <h3 class="post-title ">{{ recent_blogs.0.title }}</h3>
-                        <a href="{% url 'blog_detail' blog_id=recent_blogs.0.id %}" class="readmore stretched-link">
-                            <span>Read More</span><i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
+  </section>
 
-                <!-- Blog Post 2 -->
-                <div class="col-xl-9 col-md-6 d-none d-md-block" data-aos="fade-up" data-aos-delay="400">
-                    <div class="post-box" style="height: 202px; border: 1px solid #ccc; border-left: none;">
-                        <div class="post-img">
-                            <img src="{{ recent_blogs.1.images.url }}" class="img-fluid" alt="{{ recent_blogs.1.title }}" style="height: 200px;">
-                        </div>
-                        <div class="meta">
-                            <span class="post-date">{{ recent_blogs.1.created_date }}</span>
-                            <span class="post-author">{{ recent_blogs.1.created_by }}</span>
-                            <span class="post-comments">{{ recent_blogs.1.comments.count }} Comments</span>
-                        </div>
-                        <h3 class="post-title">{{ recent_blogs.1.title }}</h3>
-                        <p>{{ recent_blogs.1.content|truncatechars:210 }}</p>
-                        <a href="{% url 'blog_detail' blog_id=recent_blogs.1.id %}" class="readmore stretched-link">
-                            <span>Read More</span><i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Blog Post 3 -->
-                <div class="col-xl-9 col-md-6 d-none d-md-block" data-aos="fade-up" data-aos-delay="600">
-                    <div class="post-box" style="height: 202px; border: 1px solid #ccc; border-left: none;">
-                        <div class="post-img">
-                            <img src="{{ recent_blogs.2.images.url }}" class="img-fluid" alt="{{ recent_blogs.2.title }}" style="height: 200px;">
-                        </div>
-                        <div class="meta">
-                            <span class="post-date">{{ recent_blogs.2.created_date }}</span>
-                            <span class="post-author">{{ recent_blogs.2.created_by }}</span>
-                            <span class="post-comments">{{ recent_blogs.2.comments.count }} Comments</span>
-                        </div>
-                        <h3 class="post-title">{{ recent_blogs.2.title }}</h3>
-                        <p>{{ recent_blogs.2.content|truncatechars:210 }}</p>
-                        <a href="{% url 'blog_detail' blog_id=recent_blogs.2.id %}" class="readmore stretched-link">
-                            <span>Read More</span><i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Blog Post 4 -->
-                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="800">
-                    <div class="post-box">
-                        <div class="post-img">
-                            <img src="{{ recent_blogs.3.images.url }}" class="img-fluid" alt="{{ recent_blogs.3.title }}" style="height: 200px;">
-                        </div>
-                        <div class="meta">
-                            <span class="post-date">{{ recent_blogs.3.created_date }}</span>
-                        </div>
-                        <h3 class="post-title">{{ recent_blogs.3.title }}</h3>
-                        <a href="{% url 'blog_detail' blog_id=recent_blogs.3.id %}" class="readmore stretched-link">
-                            <span>Read More</span><i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-            {% else %}
-                <!-- Loop Through Blogs When Not Exactly Four -->
-                {% for blog in recent_blogs %}
-                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:200 }}">
-                        <div class="post-box">
-                            <div class="post-img">
-                                <img src="{{ blog.images.url }}" class="img-fluid" alt="{{ blog.title }}" style="height: 200px;">
-                            </div>
-                            <div class="meta">
-                                <span class="post-date">{{ blog.date }}</span>
-                                <span class="post-author">{{ blog.created_by }}</span>
-                            </div>
-                            <h3 class="post-title">{{ blog.title }}</h3>
-                            <p>{{ blog.content|truncatechars:100 }}</p>
-                            <a href="{% url 'blog_detail' blog_id=blog.id %}" class="readmore stretched-link">
-                                <span>Read More</span><i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        </div>
-    </div>
-</section>
+  <!-- end offer section -->
 
   <!-- food section -->
 
@@ -283,7 +276,7 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="{% static 'front/images/mining.jpg' %}" alt="">
+                  <img src="{% static 'front/images/mining.jpg ' %}" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
@@ -436,6 +429,158 @@
 
   <!-- end food section -->
 
+  <section class="food_section layout_padding-bottom">
+    <div class="container" data-aos="fade-up">
+      <div class="heading_container heading_center">
+        <h2>
+          Recent News
+        </h2>
+      </div>
+      <br>
+    </div>
+    <div class="container ">
+      <div class="row ">
+        {% for article in recent_news %}
+        <div class="col-3">
+          <div class="card shadow-md p-2">
+            <div class="post-img">
+              <a href="{% url 'news_detail' news_id=article.id %}">
+                <img src="{{ article.featured_image.url }}" class="img-fluid"
+                  style="width: 100%; height: 200px; border-radius: 10px;" alt="{{ article.title }}">
+              </a>
+            </div>
+
+            <div class="meta detail-box">
+              <span class="post-date text-secondary"> <small>{{ article.created_at|date:"D, F d, Y" }}</small></span>
+            </div>
+            <h6 class="post-title">
+              <a href="{% url 'news_detail' news_id=article.id %}" class="stretched-link">
+                {{article.title}}</a>
+            </h6>
+            <p>{{ article.content|truncatechars:145 }}</p>
+            <a href="{% url 'news_detail' news_id=article.id %}" class="readmore stretched-link">
+              <span>Read More</span><i class="bi bi-arrow-right"></i>
+            </a>
+
+
+
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'front/images/office.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box bg-dark">
+            <div class="heading_container">
+              <h2>
+                We are OIG
+              </h2>
+            </div>
+            <p>
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
+              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
+              the middle of text. All
+            </p>
+            <a href="">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- book section -->
+  <!-- book section -->
+  <section class="book_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>Contact Us</h2>
+
+      </div>
+
+      <div class="row gy-4">
+        <!-- Form Column -->
+        <div class="col-md-6">
+          <div class="form_container">
+            <form id="contactForm" action="{% url 'contact_us' %}" method="POST" enctype="multipart/form-data"
+              novalidate="novalidate">
+              {% csrf_token %}
+              <input type="hidden" value="true" name="emailSent" id="emailSent">
+
+
+              <div>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Full Name" required=""
+                  maxlength="100">
+              </div>
+
+              <div>
+                <input type="email" name="email" class="form-control" placeholder="Email Address" required=""
+                  maxlength="100">
+              </div>
+
+              <div>
+                <input type="number" name="phone" id="phone" class="form-control" placeholder="Phone Number" required=""
+                  maxlength="100">
+              </div>
+
+              <div>
+                <input type="text" name="subject" class="form-control" placeholder="Subject" required=""
+                  maxlength="100">
+              </div>
+
+              <div>
+                <textarea name="message" id="message" class="form-control" rows="6" placeholder="Message" required=""
+                  maxlength="5000"></textarea>
+              </div>
+
+              <div class="btn_box text-center">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <!-- <div class="sent-message">Your message has been sent. Thank you!</div> -->
+                <button type="submit" id="contactFormSubmit" data-loading-text="Loading...">
+                  Send Message
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+        <!-- Map and Info Column -->
+        <div class="col-md-6">
+          <div class="map_container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3730.886873378456!2d38.763357711893015!3d9.007869718236645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85baec50549d%3A0x459ebc2be2b84de1!2sOromia%20Region%20President%20Office!5e1!3m2!1sen!2set!4v1740730318862!5m2!1sen!2set"
+              width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end book section -->
+
+  <!-- client section -->
+
   <section class="client_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center psudo_white_primary mb_45">
@@ -449,26 +594,134 @@
           <div class="container rounded">
             <div class="slider">
               <div class="logos">
-                <i class="bi bi-code-slash fa-4x"></i> <!-- Bootstrap icon -->
-                <i class="bi bi-linkedin fa-4x"></i> <!-- Bootstrap icon -->
-                <i class="bi bi-dribbble fa-4x"></i> <!-- Bootstrap icon -->
-                <i class="bi bi-medium fa-4x"></i> <!-- Bootstrap icon -->
-                <i class="bi bi-github fa-4x"></i> <!-- Bootstrap icon -->
+                <i class="fab fa-js fa-4x"></i>
+                <i class="fab fa-linkedin-in fa-4x"></i>
+                <i class="fab fa-dribbble fa-4x"></i>
+                <i class="fab fa-medium-m fa-4x"></i>
+                <i class="fab fa-github fa-4x"></i>
               </div>
               <div class="logos">
-                <i class="bi bi-code-slash fa-4x"></i> <!-- Bootstrap icon -->
-                <i class="bi bi-linkedin fa-4x"></i> <!-- Bootstrap icon -->
-                <i class="bi bi-dribbble fa-4x"></i> <!-- Bootstrap icon -->
-                <i class="bi bi-medium fa-4x"></i> <!-- Bootstrap icon -->
-                <i class="bi bi-github fa-4x"></i> <!-- Bootstrap icon -->
+                <i class="fab fa-js fa-4x"></i>
+                <i class="fab fa-linkedin-in fa-4x"></i>
+                <i class="fab fa-dribbble fa-4x"></i>
+                <i class="fab fa-medium-m fa-4x"></i>
+                <i class="fab fa-github fa-4x"></i>
               </div>
             </div>
           </div>
         </div>
-      
+
       </div>
     </div>
-</section>
+  </section>
 
+  <!-- end client section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>
+              Contact Us
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +25 12345 67890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  otech@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">
+              Oromia Investement Group
+            </a>
+            <p>
+              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin
+              words, combined with
+            </p>
+            <div class="footer_social m-2">
+              <a href="">
+                <i class="fab fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fab fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fab fa-pinterest" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>
+            Opening Hours
+          </h4>
+          <p>
+            Everyday
+          </p>
+          <p>
+            10.00 Am -10.00 Pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> Designed and Implemented By
+          <a href="https://otech.et/" target="_blank">OTech Engineering and Technology Solutions PLC</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="{% static 'front/js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+  <!-- bootstrap js -->
+  <script src="{% static 'front/js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="{% static 'front/js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>
 
 {% endblock %}
