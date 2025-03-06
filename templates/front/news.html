@@ -16,29 +16,33 @@
     <div class="container">
         <div class="row">
             {% for article in news_articles %}
-            <div class="col-3">
-                <div class="card shadow-md p-2">
-                    <div class="post-img">
-                        <a href="{% url 'news_detail' news_id=article.id %}">
-                            <img src="{{ article.featured_image.url }}" class="img-fluid"
-                                style="width: 100%; height: 200px; border-radius: 10px;" alt="{{ article.title }}">
-                        </a>
-                    </div>
-
-                    <div class="meta detail-box">
-                        <span class="post-date text-secondary"><small>{{ article.created_at|date:"D, F d, Y" }}</small></span>
-                    </div>
-                    <h6 class="post-title">
-                        <a href="{% url 'news_detail' news_id=article.id %}" class="stretched-link">
-                            {{ article.title }}
-                        </a>
-                    </h6>
-                    <p>{{ article.content|truncatechars:145 }}</p>
-                    <a href="{% url 'news_detail' news_id=article.id %}" class="readmore stretched-link">
-                        <span>Read More</span><i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+            <div class="col-3 d-flex">
+              <div class="card shadow-md p-2 h-100 d-flex flex-column">
+                  <div class="post-img">
+                      <a href="{% url 'news_detail' news_id=article.id %}">
+                          <img src="{{ article.featured_image.url }}" class="img-fluid"
+                              style="width: 100%; height: 200px; border-radius: 10px;" alt="{{ article.title }}">
+                      </a>
+                  </div>
+          
+                  <div class="meta detail-box">
+                      <span class="post-date text-secondary"><small>{{ article.created_at|date:"D, F d, Y" }}</small></span>
+                  </div>
+                  
+                  <h6 class="post-title flex-grow-1">
+                      <a href="{% url 'news_detail' news_id=article.id %}" class="stretched-link">
+                          {{ article.title }}
+                      </a>
+                  </h6>
+          
+                  <p class="flex-grow-1">{{ article.content|truncatechars:145 }}</p>
+          
+                  <a href="{% url 'news_detail' news_id=article.id %}" class="readmore stretched-link mt-auto">
+                      <span>Read More</span><i class="bi bi-arrow-right"></i>
+                  </a>
+              </div>
+          </div>
+          
             {% endfor %}
         </div>
     </div>
