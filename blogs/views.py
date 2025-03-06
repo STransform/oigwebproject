@@ -9,7 +9,7 @@ from django.utils.translation import gettext as _
 class BlogList(View):
     def get(self, request):
         blogs = Blog.objects.all()
-        blogs_list = paginate( blogs, 6, request)
+        blogs_list = paginate( blogs, 4, request)
         
         return render(request, 'front/blog.html', {'blogs': blogs_list})
 

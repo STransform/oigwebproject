@@ -13,23 +13,19 @@
         </div>
         <div class="container">
             <div class="row">
-
                 {% for blog in blogs %}
                 <div class="col-3">
                     <div class="card shadow-md p-2">
-
-
                         <div class="post-img">
-                            <a href="{% url 'blog_detail' blog_id=blog.id %}" >
+                            <a href="{% url 'blog_detail' blog_id=blog.id %}">
                                 <img src="{{blog.images.url}}"
                                     class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0"
                                     style="width: 360px; height: 250px;" alt="" />
                             </a>
                         </div>
-
                         <div class="post-content">
                             <h2 class="font-weight-semibold text-5 text-dark line-height-6 mt-3 mb-2 ">
-                                <a href="{% url 'blog_detail' blog_id=blog.id %}" style="color: black; font-weight: 500; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"  >{{blog.title|truncatechars:30}}</a>
+                                <a href="{% url 'blog_detail' blog_id=blog.id %}" style="color: black; font-weight: 500; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">{{blog.title|truncatechars:30}}</a>
                             </h2>
                             <p style="overflow: hidden; height: 90px;">{{blog.content|truncatechars:130}}</p>
                             <div class="post-meta">
@@ -44,51 +40,63 @@
                                         href="{% url 'blog_detail' blog_id=blog.id %}" class="text-uppercase text-danger">Read
                                         More<i class="fa fa-angle-right"></i></a></span>
                             </div>
-
                         </div>
                     </div>
                 </div>
                 {% endfor %}
-
             </div>
         </div>
 
-        <!-- pagination -->
+        <!-- Pagination -->
         <div class="row align-items-center text-center">
             <div class="col-12">
                 <ul class="pagination justify-content-center align-items-center">
-
+                    <!-- Previous Button -->
                     {% if blogs.has_previous %}
-                    <li class="page-item"><a href="?page={{blogs.previous_page_number}}" class="page-link"><i
-                                class="fas fa-angle-left"></i></a></li>
-                    <li class="page-item"><a href="?page={{blogs.previous_page_number}}"
-                            class="page-link">{{blogs.previous_page_number}}</a></li>
+                    <li class="page-item">
+                        <a href="?page={{ blogs.previous_page_number }}" class="page-link">
+                            <i class="fas fa-angle-left"></i>
+                        </a>
+                    </li>
                     {% else %}
-                    <li class="page-item disabled "><a href="" class="page-link "><i class="fas fa-angle-left"></i></a>
+                    <li class="page-item disabled">
+                        <a href="#" class="page-link">
+                            <i class="fas fa-angle-left"></i>
+                        </a>
                     </li>
                     {% endif %}
 
-                    <li class="page-item active "><a href="" class="page-link">{{blogs.number}}</a></li>
+                    <!-- Page Numbers -->
+                    {% for num in blogs.paginator.page_range %}
+                        {% if blogs.number == num %}
+                        <li class="page-item active">
+                            <a href="#" class="page-link">{{ num }}</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                            <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
 
+                    <!-- Next Button -->
                     {% if blogs.has_next %}
-                    <li class="page-item"><a href="?page={{blogs.next_page_number}}"
-                            class="page-link">{{blogs.next_page_number}}</a></li>
-                    {% if blogs.next_page_number != blogs.paginator.num_pages %}
-                    <li class="page-item disabled"><a href="" class="page-link">...</a></li>
-                    <li class="page-item"><a href="?page={{blogs.paginator.num_pages}}"
-                            class="page-link " >{{blogs.paginator.num_pages}}</a></li>
-                    {% endif %}
-                    <li class="page-item"><a href="?page={{blogs.next_page_number}}" class="page-link"><i
-                                class="fas fa-angle-right"></i></a></li>
+                    <li class="page-item">
+                        <a href="?page={{ blogs.next_page_number }}" class="page-link">
+                            <i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
                     {% else %}
-                    <li class="page-item disabled"><a href="" class="page-link"><i class="fas fa-angle-right"></i></a>
+                    <li class="page-item disabled">
+                        <a href="#" class="page-link">
+                            <i class="fas fa-angle-right"></i>
+                        </a>
                     </li>
                     {% endif %}
-
                 </ul>
             </div>
         </div>
-        <!-- end pagination -->
+        <!-- End Pagination -->
     </div>
 </section>
 {% endblock %}

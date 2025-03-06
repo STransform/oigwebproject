@@ -1,52 +1,97 @@
 {% extends 'front/base.html' %}
-
 {% block about %} active {% endblock %}
 {% block about_dynamic %} active {% endblock %}
-{% block content %} 
+{% block content %}
 {% load static %}
 
-
-  <section class="food_section layout_padding-bottom ">
+<section class="food_section layout_padding-bottom">
     <div class="container" data-aos="fade-up">
         <div class="heading_container heading_center p-4">
-          <h2 class="text-dark">
-            Recent News
-          </h2>
+            <h2 class="text-dark">
+                Recent News
+            </h2>
         </div>
         <br>
-      </div>
-    <div class="container ">
-        <div class="row ">
+    </div>
+    <div class="container">
+        <div class="row">
             {% for article in news_articles %}
-          <div class="col-3">
-            <div class="card shadow-md p-2">
-              <div class="post-img">
-                <a href="{% url 'news_detail' news_id=article.id %}">
-                  <img src="{{ article.featured_image.url }}" class="img-fluid"
-                    style="width: 100%; height: 200px; border-radius: 10px;" alt="{{ article.title }}">
-                </a>
-              </div>
-  
-              <div class="meta detail-box">
-                <span class="post-date text-secondary"><small>{{ article.created_at|date:"D, F d, Y" }}</small></span>
-              </div>
-              <h6 class="post-title">
-                <a href="{% url 'news_detail' news_id=article.id %}" class="stretched-link">
-                  {{article.title}}</a>
-              </h6>
-              <p>{{ article.content|truncatechars:145 }}</p>
-              <a href="{% url 'news_detail' news_id=article.id %}" class="readmore stretched-link">
-                <span>Read More</span><i class="bi bi-arrow-right"></i>
-              </a>
-  
-  
-  
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
+            <div class="col-3">
+                <div class="card shadow-md p-2">
+                    <div class="post-img">
+                        <a href="{% url 'news_detail' news_id=article.id %}">
+                            <img src="{{ article.featured_image.url }}" class="img-fluid"
+                                style="width: 100%; height: 200px; border-radius: 10px;" alt="{{ article.title }}">
+                        </a>
+                    </div>
 
-    
-  </section>
-  {% endblock %}
+                    <div class="meta detail-box">
+                        <span class="post-date text-secondary"><small>{{ article.created_at|date:"D, F d, Y" }}</small></span>
+                    </div>
+                    <h6 class="post-title">
+                        <a href="{% url 'news_detail' news_id=article.id %}" class="stretched-link">
+                            {{ article.title }}
+                        </a>
+                    </h6>
+                    <p>{{ article.content|truncatechars:145 }}</p>
+                    <a href="{% url 'news_detail' news_id=article.id %}" class="readmore stretched-link">
+                        <span>Read More</span><i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="row align-items-center text-center mt-4">
+        <div class="col-12">
+            <ul class="pagination justify-content-center align-items-center">
+                <!-- Previous Button -->
+                {% if news_articles.has_previous %}
+                <li class="page-item">
+                    <a href="?page={{ news_articles.previous_page_number }}" class="page-link">
+                        <i class="fas fa-angle-left"></i>
+                    </a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a href="#" class="page-link">
+                        <i class="fas fa-angle-left"></i>
+                    </a>
+                </li>
+                {% endif %}
+
+                <!-- Page Numbers -->
+                {% for num in news_articles.paginator.page_range %}
+                    {% if news_articles.number == num %}
+                    <li class="page-item active">
+                        <a href="#" class="page-link">{{ num }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+
+                <!-- Next Button -->
+                {% if news_articles.has_next %}
+                <li class="page-item">
+                    <a href="?page={{ news_articles.next_page_number }}" class="page-link">
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a href="#" class="page-link">
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <!-- End Pagination -->
+</section>
+{% endblock %}

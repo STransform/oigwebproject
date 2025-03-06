@@ -6,7 +6,7 @@ from core.views import paginate
 def news_list_visitor(request):
     news_articles = NewsArticle.objects.all()
     
-    news_articles_list = paginate( news_articles, 12, request)
+    news_articles_list = paginate( news_articles, 4, request)
 
     return render(request, 'front/news.html', {'news_articles': news_articles_list})
 
